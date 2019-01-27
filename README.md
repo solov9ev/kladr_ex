@@ -1,11 +1,11 @@
 # KladrEx
 
-**API interaction library with the Kladr-API service.**
+**API interaction library with the [Kladr-API service](http://kladr-api.ru/).**
 1. Add environment keys to the operating system: `KLADR_EX_ENDPOINT`, `KLADR_EX_TOKEN` or config file:
 ```elixir
 config :kladr_ex,
-	endpoint: "endpoint", 
-	token: "token"
+  endpoint: "endpoint", 
+  token: "token"
 ```
 
 2.  Perform a test: `mix test`
@@ -14,13 +14,14 @@ config :kladr_ex,
 ```elixir
 import KladrEx.Helper
 alias KladrEx.Structs.QueryStruct
+
 struct = 
-	%QueryStruct{contentType: "building"}
-	|> put_limit(3)
-	|> put_zip(163_000)
-	|> put_with_parent(true)
+  %QueryStruct{contentType: "building"}
+  |> put_limit(3)
+  |> put_zip(163_000)
+  |> put_with_parent(true)
 	
-	response = KladrEx.request(endpoint(), struct)
+response = KladrEx.request(endpoint(), struct)
 ```
 
 ## Installation
